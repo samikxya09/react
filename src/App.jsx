@@ -1,30 +1,23 @@
-import {useState,useEffect} from "react";
 
+import {BrowserRouter,Routes,Route} from "react-router-dom";
+import Home from "./components/home";
+import About from "./components/About";
+import Error from "./components/error";
 
 
 function App() {
 
-    const[count,setCount]=useState("helo,im a boy");
-     useEffect(() => {
-      alert (" girl is female")
-     },[]
-    
-    )//use effect //
+  let  name ="samikxyaaaaaaa"
+     
   return (
-      <> 
-
-      <h1>{count}</h1>
-       {count === "hello, I'm a boy" ? (
-        <button onClick={() => setCount("hello, I'm a girl")}>
-          Change to Girl
-        </button>
-      ) : (
-        <button onClick={() => setCount("hello, I'm a boy")}>
-          Change to Boy
-        </button>
-      )}
-    </>
-  );
+       <BrowserRouter>
+       <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/:id" element={<Error/>} />
+       </Routes>
+       </BrowserRouter>
+  )
 }
 
 export default App;
